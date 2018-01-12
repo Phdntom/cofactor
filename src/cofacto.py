@@ -261,8 +261,8 @@ def update_theta(beta, X, c0, c1, lam_theta, n_jobs, batch_size=1000):
 def _solve_weighted_factor(lo, hi, beta, X, BTBpR, c0, c1, f, lam_theta):
     theta_batch = np.empty((hi - lo, f), dtype=beta.dtype)
     for ib, u in enumerate(xrange(lo, hi)):
-        x_u, idx_u = get_row(X, u)
-        B_u = beta[idx_u]
+        x_u, idx_u = get_row(X, u) # clicks and indices for user user
+        B_u = beta[idx_u] # item factors for nz item values for user
         a = x_u.dot(c1 * B_u)
         B = BTBpR + B_u.T.dot((c1 - c0) * B_u)
         theta_batch[ib] = LA.solve(B, a)
