@@ -48,6 +48,10 @@ def solve_batch(b, S, Y, X_reg, YTYpR, batch_size, m, f, dtype):
 
 def recompute_factors_batched(Y, S, lambda_reg, X=None,
                               dtype='float32', batch_size=2000, n_jobs=20):
+    """
+    Y: factors
+    S: confidence matrix
+    """
     m = S.shape[0]  # m = number of users
     f = Y.shape[1]  # f = number of factors
 
