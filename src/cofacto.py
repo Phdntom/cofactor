@@ -103,6 +103,7 @@ class CoFacto(BaseEstimator, TransformerMixin):
         # bias for beta and gamma
         self.bias_b = np.zeros(n_items, dtype=self.dtype)
         self.bias_g = np.zeros(n_items, dtype=self.dtype)
+        
         # global bias
         self.alpha = 0.0
 
@@ -196,6 +197,7 @@ class CoFacto(BaseEstimator, TransformerMixin):
         self.bias_b = update_bias(self.beta, self.gamma,
                                   self.bias_g, self.alpha, M, F,
                                   self.n_jobs, batch_size=self.batch_size)
+        
         # here it really should be M^T and F^T, but both are symmetric
         self.bias_g = update_bias(self.gamma, self.beta,
                                   self.bias_b, self.alpha, M, F,

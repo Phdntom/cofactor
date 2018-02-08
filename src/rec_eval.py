@@ -235,7 +235,7 @@ def NDCG_binary_at_k_batch(train_data, heldout_data, Et, Eb, user_idx,
     normalized discounted cumulative gain@k for binary relevance
     ASSUMPTIONS: all the 0's in heldout_data indicate 0 relevance
     '''
-    batch_users = user_idx.stop - user_idx.start
+    batch_users = user_idx.stop - user_idx.start # just a number
 
     X_pred = _make_prediction(train_data, Et, Eb, user_idx,
                               batch_users, mu=mu, vad_data=vad_data)
