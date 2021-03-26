@@ -39,13 +39,13 @@ def factorize(S, num_factors, X=None, vad_data=None, num_iters=10, init_std=0.01
         assert X.shape == (num_items, num_factors)
 
     if verbose:
-        print "Precompute S^T (if necessary)"
+        print("Precompute S^T (if necessary)")
         start_time = time.time()
 
     ST = S.T.tocsr()
 
     if verbose:
-        print "  took %.3f seconds" % (time.time() - start_time)
+        print("  took %.3f seconds" % (time.time() - start_time))
         start_time = time.time()
 
     if type(random_state) is int:
